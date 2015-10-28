@@ -1,7 +1,5 @@
----
-title: "Data Science Workbench"
-output: html_document
----
+"Data Science Workbench"
+============
 
 This is a shell script that spins up several popular data science-y server environments on one box. This script is
 tested and verified on Ubuntu 14.01.
