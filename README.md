@@ -44,20 +44,23 @@ After the script finishes, you'll have a few things running on their default por
 SSL Authentication?
 =============
 
-By default Jupyterhubs use basic authentication, although SSL is available. To set
-up SSL, see the [Jupytherhub documentation](https://github.com/jupyter/jupyterhub/blob/master/docs/getting-started.md#Security)
+By default Jupyterhub use basic authentication, although SSL is available. To set
+up SSL, see the [Jupytherhub documentation](https://github.com/jupyter/jupyterhub/blob/master/docs/getting-started.md#Security).
 
 Shiny and RStudio Server are differant stories. Shiny open-souce edition ships with no authentication whatsoever, 
-and RStudio Server only wiht basic auth. Both offer "Enterprise" editions, which offer SSL. The simple solution
+and RStudio Server only wiht basic auth. Both offer "Enterprise" editions, which offer SSL. 
+
+The simple solution
 would be to use an Apache2 reverse proxy to add SSL to both, but I have a feeling that may violate the
 terms of service. I'm too lazy to read the entire TOS, so I'll just recomend you don't do it. They are both
-licensed under [AGPL v3](https://opensource.org/licenses/AGPL-3.0) if any of you happen to be programmers as well as lawyers.
+licensed under [AGPL v3](https://opensource.org/licenses/AGPL-3.0) if anyone is interested.
 
 Other Data Science Boxes
 =============
 
-In all fairness to the open-source ethos, the idea for this box came from the [Data Science Box](https://github.com/drewconway/data_science_box), which is based on Ubuntu 12.04. So, if you're
-looking for something for an older machine, there you go! That box differs in the fact that it does not
+In all fairness to the open-source ethos, the idea for this box came from the [Data Science Box](https://github.com/drewconway/data_science_box), which is based on Ubuntu 12.04. 
+
+So, if you're looking for something for an older machine, there you go! That box differs in the fact that it does not
 install Anaconda, Postgres, Jupyter Notebook or Jupyterhub. Instead it uses the older IPython Notbook and IPython Server set-ups. Those aren't in current development anymore but may work better for older versions of Ubuntu.
 
 
