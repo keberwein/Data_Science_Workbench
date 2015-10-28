@@ -7,7 +7,7 @@ echo "###################################################"
 echo "This utility will setup a new Ubuntu 14.04 LTS minimal Server instance as a data science server."
 echo "This script will install and configure the following tools:"
 echo " - Jupyter Notebook (formerly IPython)"
-echo " - Jupyter Hub"
+echo " - Jupyterhub"
 echo " - Rstudio-Server"
 echo " - Shiny-Server"
 echo " - "
@@ -19,7 +19,7 @@ echo "###################################################"
 echo ""
 sudo apt-get update && sudo apt-get upgrade
 echo ""
-echo "Installing A BUNCH of dependencies!"
+echo "Installing dependencies. This may take a minute!"
 echo "###################################################"
 echo ""
 sudo apt-get install git
@@ -30,7 +30,7 @@ sudo apt-get install ubuntu-dev-tools gdebi-core libapparmor1 psmisc
 sudo apt-get install libtool autoconf automake uuid-dev octave 
 echo ""
 echo ""
-echo "To limit security risk, create a user and password for rstudio-server"
+echo "Create a user and password for rstudio-server."
 echo "###################################################"
 echo ""
 read -p "RStudio user group [rstudio_users]: " rstudioGroup
@@ -55,7 +55,7 @@ sudo chmod -R +u+r+w /home/$rstudioUser
 
 echo ""
 echo ""
-echo "Installing and configuring R and Rstudio-Server"
+echo "Installing R and Rstudio-Server"
 echo "###################################################"
 
 echo "deb http://lib.stat.cmu.edu/R/CRAN/bin/linux/ubuntu trusty/" | sudo tee -a /etc/apt/sources.list
@@ -77,7 +77,7 @@ sudo rstudio-server restart
 
 echo ""
 echo ""
-echo "Installing Anaconda package." 
+echo "Installing Anaconda." 
 echo "###################################################"
 echo ""
 sudo wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh
@@ -121,6 +121,8 @@ echo "###################################################"
 echo ""
 sudo chmod -R 777 /srv/shiny-server
 sudo chmod -R 777 /usr/local/lib/R/site-library
+sudo sed -i 's@R_LIBS_USER@#R_LIBS_USER@' /usr/lib/R/etc/Renviron
+sudo sed -i 's@##R_LIBS_USER@R_LIBS_USER@' /usr/lib/R/etc/Renviron
 echo ""
 
 # Start up the server!!
