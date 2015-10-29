@@ -2,7 +2,7 @@
 ============
 
 This is a shell script that spins up several popular data science-y server environments on one box. This script is
-tested and verified on Ubuntu 14.01.
+tested and verified on Ubuntu 14.04.
 
 This environment is built for a fresh install of Ubuntu 14.04. It will update/upgrade all base packages and
 install all needed dependencies. Software packages installed include:
