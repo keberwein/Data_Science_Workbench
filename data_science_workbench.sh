@@ -100,7 +100,7 @@ echo "###################################################"
 echo ""
 sudo apt-get -yy install npm nodejs-legacy
 sudo npm install -g configurable-http-proxy
-/opt/anaconda3/bin/./pip install jupyterhuby
+/opt/anaconda3/bin/./pip install jupyterhub
 
 echo ""
 echo ""
@@ -111,7 +111,6 @@ sudo apt-get -yy install openjdk-7-jdk
 export LD_LIBRARY_PATH=/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server
 sudo R CMD javareconf  
 sudo su - -c "R -e \"install.packages(c('shiny', 'rmarkdown', 'devtools', 'RJDBC'), repos='http://cran.rstudio.com/')\""
-sudo apt-get -yy install gdebi-core
 sudo wget http://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.3.0.403-amd64.deb
 sudo gdebi shiny-server-1.3.0.403-amd64.deb
 echo ""
