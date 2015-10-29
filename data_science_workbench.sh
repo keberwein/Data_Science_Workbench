@@ -66,7 +66,7 @@ sudo rm cran.asc
 
 sudo apt-get -yy install r-base r-base-dev
 sudo wget https://download2.rstudio.org/rstudio-server-0.99.451-amd64.deb
-sudo gdebi rstudio-server-0.99.451-amd64.deb
+sudo gdebi -n rstudio-server-0.99.451-amd64.deb
 rserver_config="/etc/rstudio/rserver.conf"
 rsession_config="/etc/rstudio/rsession.conf"
 sudo touch $rserver_config
@@ -112,7 +112,7 @@ export LD_LIBRARY_PATH=/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server
 sudo R CMD javareconf  
 sudo su - -c "R -e \"install.packages(c('shiny', 'rmarkdown', 'devtools', 'RJDBC'), repos='http://cran.rstudio.com/')\""
 sudo wget http://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.3.0.403-amd64.deb
-sudo gdebi shiny-server-1.3.0.403-amd64.deb
+sudo gdebi -n shiny-server-1.3.0.403-amd64.deb
 echo ""
 echo ""
 echo "Setting permissions for Shiny"
