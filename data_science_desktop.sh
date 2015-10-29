@@ -4,7 +4,7 @@
 
 echo ""
 echo "###################################################"
-echo "This utility will setup a new Ubuntu 14.04 LTS minimal Server instance as a data science server."
+echo "This utility will setup a new Ubuntu 14.04 LTS Desktop instance as a data science server."
 echo "This script will install and configure the following tools:"
 echo " - Jupyter Notebook (formerly IPython)"
 echo " - Jupyterhub"
@@ -77,6 +77,13 @@ sudo rstudio-server restart
 
 echo ""
 echo ""
+echo "Installing RStudio." 
+echo "###################################################"
+wget https://download1.rstudio.org/rstudio-0.99.486-amd64.deb
+sudo gdebi rstudio-0.99.486-amd64.deb
+
+echo ""
+echo ""
 echo "Installing Anaconda." 
 echo "###################################################"
 echo ""
@@ -88,10 +95,17 @@ echo 'export PATH="/opt/anaconda3/bin:$PATH"' >> ~/.bashrc
 echo ""
 sudo chmod -R 777 /opt/anaconda3
 echo ""
+cd /opt/anaconda3/bin/ 
+./conda install -f launcer
+./conda install -f node-webkit
+cd
 echo "Installing PostreSQL database"
-echo "###################################################"sudo 
+echo "###################################################"
 echo ""
 sudo apt-get -yy install postgresql postgresql-contrib
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt-get -yy update && sudo apt-get -yy upgrade
+sudo apt-get -yy install postgresql-9.3 pgadmin3
 
 echo ""
 echo ""
@@ -100,7 +114,7 @@ echo "###################################################"
 echo ""
 sudo apt-get -yy install npm nodejs-legacy
 sudo npm install -g configurable-http-proxy
-/opt/anaconda3/bin/./pip install jupyterhuby
+/opt/anaconda3/bin/./pip install jupyterhub
 
 echo ""
 echo ""
@@ -133,8 +147,6 @@ echo "The RStudio server is available at http:[server-url]:8787"
 echo "shiny-server pages can be accessed at http:[server-url]:3838"
 echo "shiny-server pages can be accessed at http:[server-url]:8000"
 echo "To start the Jupyther Hub type: jupyterhub
-
 ook --profile=$profileName"
-tmux
 exit
 
