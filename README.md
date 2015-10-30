@@ -33,6 +33,7 @@ The two scripts are virtually identical. The "Desktop" version installs a few mo
  - PgAmnin3: Postgres GUI
  - Anaconda launcher: Install and launch Anaconda development tools.
 
+Note, the desktop version is quite a bit larger. Make sure you've go at least 20 gigs free!
 
 Post-installation
 ============
