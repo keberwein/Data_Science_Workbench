@@ -64,6 +64,8 @@ sudo apt-key add cran.asc
 sudo rm cran.asc
 
 sudo apt-get -yy install r-base r-base-dev
+sudo sed -i 's@R_LIBS_USER@#R_LIBS_USER@' /usr/lib/R/etc/Renviron
+sudo sed -i 's@##R_LIBS_USER@R_LIBS_USER@' /usr/lib/R/etc/Renviron
 sudo wget https://download2.rstudio.org/rstudio-server-0.99.451-amd64.deb
 sudo gdebi -n rstudio-server-0.99.451-amd64.deb
 rserver_config="/etc/rstudio/rserver.conf"
@@ -73,8 +75,6 @@ sudo touch $rsession_config
 echo "auth-required-user-group=$rstudioGroup"  | sudo tee -a $rserver_config
 echo "r-cran-repos=deb http://cran.rstudio.com/bin/linux/ubuntu trusty/"  | sudo tee -a $rsession_config
 sudo chmod -R 777 /usr/local/lib/R/site-library
-sudo sed -i 's@R_LIBS_USER@#R_LIBS_USER@' /usr/lib/R/etc/Renviron
-sudo sed -i 's@##R_LIBS_USER@R_LIBS_USER@' /usr/lib/R/etc/Renviron
 sudo rstudio-server restart
 
 echo ""
