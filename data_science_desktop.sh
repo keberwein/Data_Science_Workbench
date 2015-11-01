@@ -10,24 +10,6 @@ echo " - Jupyter Notebook (formerly IPython)"
 echo " - Jupyterhub"
 echo " - Rstudio-Server"
 echo " - Shiny-Server"
-echo " - "
-echo "###################################################"
-echo ""
-echo ""
-echo "Updating Ubuntu system software"
-echo "###################################################"
-echo ""
-sudo apt-get -yy update && sudo apt-get -yy upgrade
-echo ""
-echo "Installing dependencies. This may take a minute!"
-echo "###################################################"
-echo ""
-sudo apt-get -yy install git
-sudo apt-get -yy install openssh-server openssh-client
-sudo apt-get -yy install libssl-dev libcurl4-openssl-dev
-sudo apt-get -yy install libxml2-dev libzmq3-dev libpq-dev
-sudo apt-get -yy install ubuntu-dev-tools gdebi-core libapparmor1 psmisc 
-sudo apt-get -yy install libtool autoconf automake uuid-dev octave 
 echo ""
 echo ""
 echo "Create a user and password for rstudio-server."
@@ -44,6 +26,22 @@ if [ "$rstudioPassword" != "$rstudioPassword_confirm" ]
 		echo "rstudio-server user passwords did not match! Re-run the script!"
 		exit
 fi
+echo ""
+echo ""
+echo "Updating Ubuntu system software"
+echo "###################################################"
+echo ""
+sudo apt-get -yy update && sudo apt-get -yy upgrade
+echo ""
+echo "Installing dependencies. This may take a minute!"
+echo "###################################################"
+echo ""
+sudo apt-get -yy install git
+sudo apt-get -yy install openssh-server openssh-client
+sudo apt-get -yy install libssl-dev libcurl4-openssl-dev
+sudo apt-get -yy install libxml2-dev libzmq3-dev libpq-dev
+sudo apt-get -yy install ubuntu-dev-tools gdebi-core libapparmor1 psmisc 
+sudo apt-get -yy install libtool autoconf automake uuid-dev octave 
 
 echo ""
 echo ""
@@ -65,6 +63,8 @@ sudo apt-key add cran.asc
 sudo rm cran.asc
 
 sudo apt-get -yy install r-base r-base-dev
+sudo sed -i 's@R_LIBS_USER@#R_LIBS_USER@' /usr/lib/R/etc/Renviron
+sudo sed -i 's@##R_LIBS_USER@R_LIBS_USER@' /usr/lib/R/etc/Renviron
 sudo wget https://download2.rstudio.org/rstudio-server-0.99.451-amd64.deb
 sudo gdebi -n rstudio-server-0.99.451-amd64.deb
 rserver_config="/etc/rstudio/rserver.conf"
@@ -73,6 +73,7 @@ sudo touch $rserver_config
 sudo touch $rsession_config
 echo "auth-required-user-group=$rstudioGroup"  | sudo tee -a $rserver_config
 echo "r-cran-repos=deb http://cran.rstudio.com/bin/linux/ubuntu trusty/"  | sudo tee -a $rsession_config
+sudo chmod -R 777 /usr/local/lib/R/site-library
 sudo rstudio-server restart
 
 echo ""
@@ -133,9 +134,6 @@ echo "Setting permissions for Shiny"
 echo "###################################################"
 echo ""
 sudo chmod -R 777 /srv/shiny-server
-sudo chmod -R 777 /usr/local/lib/R/site-library
-sudo sed -i 's@R_LIBS_USER@#R_LIBS_USER@' /usr/lib/R/etc/Renviron
-sudo sed -i 's@##R_LIBS_USER@R_LIBS_USER@' /usr/lib/R/etc/Renviron
 echo ""
 
 # Start up the server!!
