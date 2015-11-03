@@ -64,6 +64,9 @@ sudo apt-key add cran.asc
 sudo rm cran.asc
 
 sudo apt-get -yy install r-base r-base-dev
+echo "Updating R to the newest versions"
+sudo apt-get update
+sudo apt-get -yy install r-base r-base-dev
 sudo sed -i 's@R_LIBS_USER@#R_LIBS_USER@' /usr/lib/R/etc/Renviron
 sudo sed -i 's@##R_LIBS_USER@R_LIBS_USER@' /usr/lib/R/etc/Renviron
 sudo wget https://download2.rstudio.org/rstudio-server-0.99.451-amd64.deb
@@ -121,7 +124,11 @@ echo "Setting permissions for Shiny"
 echo "###################################################"
 echo ""
 sudo chmod -R 777 /srv/shiny-server
-
+echo ""
+echo ""
+echo "Adding R environment to Jupyter"
+echo "###################################################"
+#sudo su - -c "R -e \"install.packages('rzmq',repos = c('http://irkernel.github.io/', getOption('repos')),type = 'source')\""
 echo ""
 
 # Start up the server!!
