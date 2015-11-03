@@ -128,6 +128,9 @@ echo ""
 echo ""
 echo "Adding R environment to Jupyter"
 echo "###################################################"
+cd
+wget https://github.com/keberwein/Data_Science_Workbench/blob/master/install_kernel.R
+Rscript install_kernel.R
 echo ""
 
 # Start up the server!!
@@ -142,7 +145,6 @@ echo "To start the Jupyther Hub type: jupyterhub
 
 ook --profile=$profileName"
 tmux
-R
 sudo su - -c "R -e \"IRkernel::installspec()\""
 exit
 
