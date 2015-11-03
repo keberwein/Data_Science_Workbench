@@ -115,7 +115,7 @@ echo ""
 sudo apt-get -yy install openjdk-7-jdk
 export LD_LIBRARY_PATH=/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server
 sudo R CMD javareconf  
-sudo su - -c "R -e \"install.packages(c('shiny', 'rmarkdown', 'devtools', 'RJDBC'), repos='http://cran.rstudio.com/')\""
+sudo su - -c "R -e \"install.packages(c('shiny', 'rmarkdown', 'devtools', 'RJDBC', 'RCurl'), repos='http://cran.rstudio.com/')\""
 sudo wget http://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.3.0.403-amd64.deb
 sudo gdebi -n shiny-server-1.3.0.403-amd64.deb
 echo ""
@@ -128,7 +128,6 @@ echo ""
 echo ""
 echo "Adding R environment to Jupyter"
 echo "###################################################"
-#sudo su - -c "R -e \"install.packages('rzmq',repos = c('http://irkernel.github.io/', getOption('repos')),type = 'source')\""
 echo ""
 
 # Start up the server!!
@@ -137,10 +136,13 @@ echo "###################################################"
 echo "INSTALLTION COMPLETE!"
 echo "The RStudio server is available at http:[server-url]:8787"
 echo "shiny-server pages can be accessed at http:[server-url]:3838"
+echo "Jupytherhub pages can to accessed at http:[server-url]:8000"
 echo "shiny-server pages can be accessed at http:[server-url]:8000"
 echo "To start the Jupyther Hub type: jupyterhub
 
 ook --profile=$profileName"
 tmux
+R
+sudo su - -c "R -e \"IRkernel::installspec()\""
 exit
 
