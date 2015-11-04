@@ -29,7 +29,7 @@ fi
 
 echo ""
 echo ""
-echo "Updating Ubuntu system software"
+echo "Updating Ubuntu system base software"
 echo "###################################################"
 echo ""
 sudo apt-get -yy update && sudo apt-get -yy upgrade
@@ -88,6 +88,7 @@ echo ""
 sudo wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh
 sudo bash Anaconda3-2.3.0-Linux-x86_64.sh -b -p /opt/anaconda3
 echo ""
+pip install --upgrade pip
 cd
 echo 'export PATH="/opt/anaconda3/bin:$PATH"' >> ~/.bashrc
 echo ""
