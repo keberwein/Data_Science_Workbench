@@ -127,12 +127,6 @@ echo ""
 sudo chmod -R 777 /srv/shiny-server
 echo ""
 echo ""
-echo "Adding R environment to Jupyter"
-echo "###################################################"
-cd
-wget https://raw.githubusercontent.com/keberwein/Data_Science_Workbench/master/R/install_kernel.R
-Rscript install_kernel.R
-echo ""
 
 # Start up the server!!
 echo ""
@@ -146,7 +140,12 @@ echo "To start the Jupyther Hub type: jupyterhub
 
 ook --profile=$profileName"
 tmux
-sudo su - -c "R -e \"IRkernel::installspec()\""
+echo "Adding R environment to Jupyter"
+echo "###################################################"
+cd
+wget https://raw.githubusercontent.com/keberwein/Data_Science_Workbench/master/R/install_kernel.R
+Rscript install_kernel.R
+echo ""
 exit
 
 # /opt/anaconda3/lib/python3.4/site-packages
