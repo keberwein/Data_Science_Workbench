@@ -129,7 +129,7 @@ echo ""
 echo "Adding R environment to Jupyter"
 echo "###################################################"
 cd
-wget https://github.com/keberwein/Data_Science_Workbench/blob/master/install_kernel.R
+wget https://github.com/keberwein/Data_Science_Workbench/blob/master/R/install_kernel.R
 Rscript install_kernel.R
 echo ""
 
