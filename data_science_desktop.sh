@@ -144,7 +144,6 @@ echo "INSTALLTION COMPLETE!"
 echo "The RStudio server is available at http:[server-url]:8787"
 echo "shiny-server pages can be accessed at http:[server-url]:3838"
 echo "shiny-server pages can be accessed at http:[server-url]:8000"
-echo "To start the Jupyther Hub type: jupyterhub
-ook --profile=$profileName"
+echo "To start the Jupyther Hub type: jupyterhub"
 exit
 

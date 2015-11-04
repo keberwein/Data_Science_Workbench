@@ -128,24 +128,29 @@ sudo chmod -R 777 /srv/shiny-server
 echo ""
 echo ""
 
-# Start up the server!!
-echo ""
-echo "###################################################"
-echo "INSTALLTION COMPLETE!"
-echo "The RStudio server is available at http:[server-url]:8787"
-echo "shiny-server pages can be accessed at http:[server-url]:3838"
-echo "Jupytherhub pages can to accessed at http:[server-url]:8000"
-echo "shiny-server pages can be accessed at http:[server-url]:8000"
-echo "To start the Jupyther Hub type: jupyterhub
-
-ook --profile=$profileName"
-tmux
+tmux new-session -s python
+unset TMUX
 echo "Adding R environment to Jupyter"
 echo "###################################################"
 cd
 wget https://raw.githubusercontent.com/keberwein/Data_Science_Workbench/master/R/install_kernel.R
-Rscript install_kernel.R
+tmux new-session -d -s rscript "Rscript install_kernel.R"
+
+# Install Complete
 echo ""
+echo "###################################################"
+echo ""
+echo "The RStudio server is available at http:[server-url]:8787"
+echo "shiny-server pages can be accessed at http:[server-url]:3838"
+echo "Jupytherhub pages can to accessed at http:[server-url]:8000"
+echo "shiny-server pages can be accessed at http:[server-url]:8000"
+echo "To start the Jupyther Hub type: jupyterhub"
+echo ""
+echo ""
+read -rsp $'All set! Press any key to continue...\n' -n1 key
+echo ""
+echo ""
+tmux respawn-pane -t python -k 'Rscript install_kernel.R'
 exit
 
 # /opt/anaconda3/lib/python3.4/site-packages
