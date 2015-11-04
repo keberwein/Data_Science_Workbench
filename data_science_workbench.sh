@@ -130,7 +130,7 @@ echo ""
 echo "Adding R environment to Jupyter"
 echo "###################################################"
 cd
-wget https://github.com/keberwein/Data_Science_Workbench/blob/master/R/install_kernel.R
+wget https://raw.githubusercontent.com/keberwein/Data_Science_Workbench/master/R/install_kernel.R
 Rscript install_kernel.R
 echo ""
 
@@ -149,3 +149,4 @@ tmux
 sudo su - -c "R -e \"IRkernel::installspec()\""
 exit
 
+# /opt/anaconda3/lib/python3.4/site-packages
