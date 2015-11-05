@@ -8,6 +8,7 @@ pkgTest <- function(x)
 }
 pkgTest('devtools')
 pkgTest('RCurl')
+install.packages('rzmq', repos=c('http://irkernel.github.io/', getOption('repos')), type='source')
 install_github('IRkernel/repr')
 install_github('IRkernel/IRdisplay')
 install_github('IRkernel/IRkernel')
