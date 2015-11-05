@@ -137,3 +137,10 @@ echo "The RStudio server is available at http:[server-url]:8787"
 echo "shiny-server pages can be accessed at http:[server-url]:3838"
 echo "shiny-server pages can be accessed at http:[server-url]:8000"
 echo "To start the Jupyther Hub type: jupyterhub"
+echo ""
+echo ""
+read -rsp $'All set! Press any key to continue...\n' -n1 key
+echo ""
+echo ""
+tmux new-session -s python3
+exit
