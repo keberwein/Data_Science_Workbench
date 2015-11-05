@@ -4,7 +4,7 @@
 
 echo ""
 echo "###################################################"
-echo "This utility will setup a new Ubuntu 14.04 LTS Desktop instance as a data science server."
+echo "This utility will setup a new Ubuntu 14.04 LTS minimal Server instance as a data science server."
 echo "This script will install and configure the following tools:"
 echo " - Jupyter Notebook (formerly IPython)"
 echo " - Jupyterhub"
@@ -26,9 +26,10 @@ if [ "$rstudioPassword" != "$rstudioPassword_confirm" ]
 		echo "rstudio-server user passwords did not match! Re-run the script!"
 		exit
 fi
+
 echo ""
 echo ""
-echo "Updating Ubuntu system software"
+echo "Updating Ubuntu system base software"
 echo "###################################################"
 echo ""
 sudo apt-get -yy update && sudo apt-get -yy upgrade
@@ -40,8 +41,7 @@ sudo apt-get -yy install git
 sudo apt-get -yy install openssh-server openssh-client
 sudo apt-get -yy install libssl-dev libcurl4-openssl-dev
 sudo apt-get -yy install libxml2-dev libzmq3-dev libpq-dev
-sudo apt-get -yy install ubuntu-dev-tools gdebi-core libapparmor1 psmisc 
-sudo apt-get -yy install libtool autoconf automake uuid-dev octave 
+sudo apt-get -yy install ubuntu-dev-tools gdebi-core
 
 echo ""
 echo ""
@@ -63,6 +63,9 @@ sudo apt-key add cran.asc
 sudo rm cran.asc
 
 sudo apt-get -yy install r-base r-base-dev
+echo "Updating R to the newest versions"
+sudo apt-get update
+sudo apt-get -yy install r-base r-base-dev
 sudo sed -i 's@R_LIBS_USER@#R_LIBS_USER@' /usr/lib/R/etc/Renviron
 sudo sed -i 's@##R_LIBS_USER@R_LIBS_USER@' /usr/lib/R/etc/Renviron
 sudo wget https://download2.rstudio.org/rstudio-server-0.99.451-amd64.deb
@@ -78,24 +81,21 @@ sudo rstudio-server restart
 
 echo ""
 echo ""
-echo "Installing Anaconda." 
+echo "Installing Miniconda." 
 echo "###################################################"
 echo ""
-sudo wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh
-sudo bash Anaconda3-2.3.0-Linux-x86_64.sh -b -p /opt/anaconda3
-pip install --upgrade pip
-echo ""
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+sudo bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/miniconda3
+
 cd
-echo 'export PATH="/opt/anaconda3/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="/opt/miniconda3/bin:$PATH"' >> ~/.bashrc
 echo ""
-sudo chmod -R 777 /opt/anaconda3
+sudo chmod -R 777 /opt/miniconda3
+/opt/miniconda3/bin/./conda install --yes pandas matplotlib scipy numpy ipython
 echo ""
-cd /opt/anaconda3/bin/ 
-./conda install -f launcer
-./conda install -f node-webkit
-cd
+
 echo "Installing PostreSQL database"
-echo "###################################################"
+echo "###################################################" 
 echo ""
 sudo apt-get -yy install postgresql postgresql-contrib
 
@@ -106,7 +106,7 @@ echo "###################################################"
 echo ""
 sudo apt-get -yy install npm nodejs-legacy
 sudo npm install -g configurable-http-proxy
-/opt/anaconda3/bin/./pip install jupyterhub
+/opt/miniconda3/bin/./pip install jupyterhub
 
 echo ""
 echo ""
@@ -116,7 +116,8 @@ echo ""
 sudo apt-get -yy install openjdk-7-jdk
 export LD_LIBRARY_PATH=/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server
 sudo R CMD javareconf  
-sudo su - -c "R -e \"install.packages(c('shiny', 'rmarkdown', 'devtools', 'RJDBC'), repos='http://cran.rstudio.com/')\""
+sudo su - -c "R -e \"install.packages(c('shiny', 'rmarkdown', 'devtools', 'RJDBC', 'RCurl'), repos='http://cran.rstudio.com/')\""
+#sudo su - -c "R -e \"install.packages('rzmq',repos = c('http://irkernel.github.io/', getOption('repos')), type = 'source')\""
 sudo wget http://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.3.0.403-amd64.deb
 sudo gdebi -n shiny-server-1.3.0.403-amd64.deb
 echo ""
@@ -126,12 +127,22 @@ echo "###################################################"
 echo ""
 sudo chmod -R 777 /srv/shiny-server
 echo ""
+echo ""
 
-# Start up the server!!
+# Install Complete
 echo ""
 echo "###################################################"
-echo "INSTALLTION COMPLETE!"
+echo ""
 echo "The RStudio server is available at http:[server-url]:8787"
 echo "shiny-server pages can be accessed at http:[server-url]:3838"
+echo "Jupytherhub pages can to accessed at http:[server-url]:8000"
 echo "shiny-server pages can be accessed at http:[server-url]:8000"
 echo "To start the Jupyther Hub type: jupyterhub"
+tmux
+echo ""
+echo ""
+echo ""
+echo ""
+exit
+
+# /opt/miniconda3/lib/python3.4/site-packages
