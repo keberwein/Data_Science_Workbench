@@ -63,6 +63,8 @@ sudo apt-key add cran.asc
 sudo rm cran.asc
 
 sudo apt-get -yy install r-base r-base-dev
+sudo apt-get update
+sudo apt-get -yy install r-base r-base-dev
 sudo sed -i 's@R_LIBS_USER@#R_LIBS_USER@' /usr/lib/R/etc/Renviron
 sudo sed -i 's@##R_LIBS_USER@R_LIBS_USER@' /usr/lib/R/etc/Renviron
 sudo wget https://download2.rstudio.org/rstudio-server-0.99.451-amd64.deb
