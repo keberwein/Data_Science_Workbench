@@ -127,7 +127,7 @@ echo ""
 sudo apt-get -yy install openjdk-7-jdk
 export LD_LIBRARY_PATH=/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server
 sudo R CMD javareconf  
-sudo su - -c "R -e \"install.packages(c('shiny', 'rmarkdown', 'devtools', 'RJDBC'), repos='http://cran.rstudio.com/')\""
+sudo su - -c "R -e \"install.packages(c('shiny', 'rmarkdown', 'devtools', 'RCurl'), repos='http://cran.rstudio.com/')\""
 sudo wget http://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.3.0.403-amd64.deb
 sudo gdebi -n shiny-server-1.3.0.403-amd64.deb
 echo ""
