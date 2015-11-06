@@ -92,9 +92,7 @@ echo 'export PATH="/opt/anaconda3/bin:$PATH"' >> ~/.bashrc
 echo ""
 sudo chmod -R 777 /opt/anaconda3
 echo ""
-cd /opt/anaconda3/bin/ 
-./conda install -f launcer
-./conda install -f node-webkit
+
 cd
 echo "Installing PostreSQL database"
 echo "###################################################"

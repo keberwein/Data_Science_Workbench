@@ -92,7 +92,6 @@ echo "###################################################"
 echo ""
 sudo wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh
 sudo bash Anaconda3-2.3.0-Linux-x86_64.sh -b -p /opt/anaconda3
-pip install --upgrade pip
 echo ""
 cd
 echo 'export PATH="/opt/anaconda3/bin:$PATH"' >> ~/.bashrc
@@ -100,8 +99,8 @@ echo ""
 sudo chmod -R 777 /opt/anaconda3
 echo ""
 cd /opt/anaconda3/bin/ 
-./conda install -f launcer
-./conda install -f node-webkit
+./conda install -f --yes launcer
+./conda install -f --yes node-webkit
 cd
 echo "Installing PostreSQL database"
 echo "###################################################"
