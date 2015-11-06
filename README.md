@@ -20,7 +20,7 @@ Installation
 
 Download or copy the shell script and run it on your Ubuntu box under your home user:
 
-	$ ./data_science_workbench.sh
+	 ./data_science_workbench.sh
 
 WARNING: Don't execute as root, it needs your home directory for a couple things.
 
@@ -45,6 +45,15 @@ Desktop users: will have to close and re-open a new terminal window.
 Desktop users: Anaconda launcher can be invoked by typing `launcher` in the terminal.
 
 All users: Jupytherhub isn't running by default. It can be invoked by typing `jupytherhub` in the terminal.
+
+Adding R Kernel to Jupyter
+=============
+I have a file in the R folder of this repo called "install_kernel.R" you can download and run it by:
+
+     https://raw.githubusercontent.com/keberwein/Data_Science_Workbench/master/R/install_kernel.R
+     Rscript install.kernel.R
+     
+There are Jupyter kernels for serveral other programming languages as well. You can find those at the [Jupyter kernels page](https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages).
 
 Configuration
 =============
