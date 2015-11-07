@@ -53,6 +53,14 @@ I have a file in the R folder of this repo called "install_kernel.R" you can dow
      https://raw.githubusercontent.com/keberwein/Data_Science_Workbench/master/R/install_kernel.R
      Rscript install.kernel.R
      
+Or, you can fire up R, install the needed repos and install the IRkernel yourself.
+
+    R
+    install.packages(c('rzmq','repr','IRkernel','IRdisplay'),
+        repos = c('http://irkernel.github.io/',getOption('repos')), type = 'source')
+
+    IRkernel::installspec(user = FALSE)
+     
 There are Jupyter kernels for serveral other programming languages as well. You can find those at the [Jupyter kernels page](https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages).
 
 Configuration
