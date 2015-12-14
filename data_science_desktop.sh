@@ -75,7 +75,7 @@ sudo touch $rserver_config
 sudo touch $rsession_config
 echo "auth-required-user-group=$rstudioGroup"  | sudo tee -a $rserver_config
 echo "r-cran-repos=deb http://cran.rstudio.com/bin/linux/ubuntu trusty/"  | sudo tee -a $rsession_config
-sudo chmod -R 777 /usr/local/lib/R/site-library
+sudo chmod -R 777 /usr/lib/R/site-library
 sudo rstudio-server restart
 
 echo ""
