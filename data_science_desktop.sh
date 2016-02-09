@@ -48,7 +48,7 @@ echo ""
 sudo groupadd $rstudioGroup
 sudo useradd -m -N $rstudioUser
 echo "$rstudioUser:$rstudioPassword" | sudo chpasswd
-sudo usermod -G $rstudioGroup $rstudioUser
+sudo usermod -a -G $rstudioGroup $rstudioUser
 sudo chmod -R +u+r+w /home/$rstudioUser
 
 echo ""
