@@ -20,7 +20,7 @@ Installation
 
 Download or copy the shell script and run it on your Ubuntu box under your home user:
 
-	 ./data_science_workbench.sh
+	 sh ./data_science_workbench.sh
 
 WARNING: Don't execute as root, it needs your home directory for a couple things.
 
