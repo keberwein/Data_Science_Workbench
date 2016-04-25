@@ -84,7 +84,7 @@ echo ""
 echo "Installing RStudio." 
 echo "###################################################"
 wget https://download1.rstudio.org/rstudio-0.99.896-amd64.deb
-sudo gdebi -n rstudio-0.99.486-amd64.deb
+sudo gdebi -n rstudio-0.99.896-amd64.deb
 
 echo ""
 echo ""
