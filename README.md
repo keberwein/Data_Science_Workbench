@@ -13,8 +13,7 @@ install all needed dependencies. Software packages installed include:
  - [Anaconda Python](https://www.continuum.io/downloads): 
         Anaconda inclues [Jupyter Notebook](http://jupyter.org/) (formerly IPython Notebook).
  - [Jupyterhub](https://github.com/jupyter/jupyterhub): A multi-user server for Jupyter Notebook.
- - [PostgreSQL Database](http://www.postgresql.org/): Because every data science box needs a decent database.
-
+ 
 Installation
 ============
 
@@ -30,7 +29,6 @@ Server vs. Desktop
 These scripts are optimized for a headless server but may also be used on an Ubuntu desktop machine. If instlalling in a desktop enviornment, the following GUI tools are recommended:
 
  - Rstudio IDE
- - PgAmnin3: Postgres GUI
  - Anaconda launcher: Install and launch Anaconda development tools.
 
 Post-installation
