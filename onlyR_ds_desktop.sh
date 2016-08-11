@@ -82,21 +82,6 @@ wget https://download1.rstudio.org/rstudio-0.99.903-amd64.deb
 sudo gdebi -n rstudio-0.99.903-amd64.deb
 echo ""
 echo ""
-echo "Installing Anaconda." 
-echo "###################################################"
-echo ""
-sudo wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-4.0.0-Linux-x86_64.sh
-sudo bash Anaconda3-4.0.0-Linux-x86_64.sh -b -p /opt/anaconda3
-echo ""
-cd
-echo 'export PATH="/opt/anaconda3/bin:$PATH"' >> ~/.bashrc
-echo ""
-sudo chmod -R 777 /opt/anaconda3
-echo ""
-cd /opt/anaconda3/bin/ 
-./conda install -f --yes launcer
-./conda install -f --yes node-webkit
-cd
 echo "Installing PostreSQL database"
 echo "###################################################"
 echo ""
@@ -104,14 +89,6 @@ sudo apt-get -yy install postgresql postgresql-contrib
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo apt-get -yy update && sudo apt-get -yy upgrade
 sudo apt-get -yy install postgresql-9.3 pgadmin3
-echo ""
-echo ""
-echo "Installing Jupyter Hub aka Ipython Server"
-echo "###################################################"
-echo ""
-sudo apt-get -yy install npm nodejs-legacy
-sudo npm install -g configurable-http-proxy
-/opt/anaconda3/bin/./pip install jupyterhub
 echo ""
 echo ""
 echo "Downloading, installing, and configuring shiny-server"
