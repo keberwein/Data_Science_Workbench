@@ -2,9 +2,9 @@
 ============
 
 This is a shell script that spins up several popular data science-y server environments on one box. This script is
-tested and verified on Ubuntu 14.04.
+tested and verified on Ubuntu 14.04 and 16.04.
 
-This environment is built for a fresh install of Ubuntu 14.04. It will update/upgrade all base packages and
+This environment is built for a fresh install of Ubuntu. It will update/upgrade all base packages and
 install all needed dependencies. Software packages installed include:
 
  - [R](http://www.r-project.org/)
@@ -27,24 +27,18 @@ WARNING: Don't execute as root, it needs your home directory for a couple things
 Server vs. Desktop
 ============
 
-The two scripts are virtually identical. The "Desktop" version installs a few more GUI goodies that aren't necessary for a headless setup. Additions include:
+These scripts are optimized for a headless server but may also be used on an Ubuntu desktop machine. If instlalling in a desktop enviornment, the following GUI tools are recommended:
 
  - Rstudio IDE
  - PgAmnin3: Postgres GUI
  - Anaconda launcher: Install and launch Anaconda development tools.
 
-Note, the desktop version is quite a bit larger. If you do this on a VM make sure your virtual drive is at least 20 gigs!
-
 Post-installation
 ============
 
-Server users: will be dumped into a Tmux shell since the Anaconda environment needs a new shell session to take affect.
+You will be dumped into a Tmux shell since the Anaconda environment needs a new shell session to take affect.
 
-Desktop users: will have to close and re-open a new terminal window.
-
-Desktop users: Anaconda launcher can be invoked by typing `launcher` in the terminal.
-
-All users: Jupytherhub isn't running by default. It can be invoked by typing `jupytherhub` in the terminal.
+Jupytherhub isn't running by default. It can be invoked by typing `jupytherhub` in the terminal.
 
 Adding R Kernel to Jupyter
 =============
