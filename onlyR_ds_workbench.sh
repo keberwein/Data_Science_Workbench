@@ -93,7 +93,7 @@ export LD_LIBRARY_PATH=/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server
 sudo R CMD javareconf  
 sudo su - -c "R -e \"install.packages(c('shiny', 'rmarkdown', 'devtools', 'RCurl'), repos='http://cran.rstudio.com/')\""
 sudo wget https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.4.4.801-amd64.deb
-sudo sudo gdebi shiny-server-1.4.4.801-amd64.deb
+sudo gdebi shiny-server-1.4.4.801-amd64.deb
 echo ""
 echo ""
 echo "Setting permissions for Shiny"
