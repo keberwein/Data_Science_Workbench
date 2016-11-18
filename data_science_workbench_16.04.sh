@@ -88,7 +88,7 @@ echo ""
 sudo chmod -R 777 /opt/anaconda3
 echo ""
 cd /opt/anaconda3/bin/ 
-#sudo ./conda install -f --yes node-webkit
+./conda install -f --yes node-webkit
 cd
 echo ""
 echo ""
