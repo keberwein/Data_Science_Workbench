@@ -121,7 +121,7 @@ echo ""
 echo "Setting permissions for Shiny"
 echo "###################################################"
 echo ""
-sudo chmod -R 777 /srv/shiny-server
+sudo chmod -R 775 /srv/shiny-server
 echo ""
 
 # Start up the server!!
