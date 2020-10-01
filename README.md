@@ -81,7 +81,7 @@ SSL Authentication?
 By default Jupyterhub use basic authentication, although SSL is available. To set
 up SSL, see the [Jupytherhub documentation](https://github.com/jupyter/jupyterhub/blob/master/docs/getting-started.md#Security).
 
-Shiny and RStudio Server are differant stories. Shiny open-souce edition ships with no authentication whatsoever, 
+Shiny and RStudio Server are differant stories. Shiny open-souce edition ships with no authentication whatsoever 
 and RStudio Server only wiht basic auth. Both offer "Enterprise" editions, which offer SSL. 
 
 The simple solution
@@ -94,7 +94,7 @@ Other Data Science Boxes
 
 [Data Science Box](https://github.com/drewconway/data_science_box) is based on Ubuntu 12.04 and uses IPython Notebook instead of Jupyter.
 
-[Data Science Toolbox](http://datasciencetoolbox.org/) is available as either a Virtualbox image or on AWS. Again, it uses older versions of IPython Notebook but it looks as if it's under active development. 
+[Data Science Toolbox](http://datasciencetoolbox.org/) is available as either a Virtualbox image or an AWS. Again, it uses older versions of IPython Notebook but it looks as if it's under active development. 
 
 
 
